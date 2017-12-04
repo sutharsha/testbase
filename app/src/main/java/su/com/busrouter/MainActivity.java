@@ -1,8 +1,11 @@
 package su.com.busrouter;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -22,6 +25,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         doSomeWork();
+
+        Button dummyButton = (Button) findViewById(R.id.goToDummyButton);
+        dummyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToDummyScreen();
+            }
+        });
+
     }
 
     private Observable<String> getObservable(){
@@ -61,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(getObserver());
+    }
+
+    private void goToDummyScreen(){
+        Intent intent = new Intent(this, DummyActivity.class);
+        startActivity(intent);
+
     }
 
 }

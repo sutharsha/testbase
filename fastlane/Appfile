@@ -1,0 +1,2 @@
+json_key_file "/Users/sutharsha/Downloads/Google\ Play\ Android\ Developer-22d32b6867a7.json" # Path to the json secret file - Follow https://github.com/fastlane/supply#setup to get one
+package_name "su.com.busrouter" # e.g. com.krausefx.app
